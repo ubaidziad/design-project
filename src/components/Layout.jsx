@@ -8,35 +8,32 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+      <header className="border-b border-border/20 dark:border-border/10 bg-background sticky top-0 z-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">F</span>
-              </div>
-              <div>
-                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent">
+            <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-foreground" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <h1 className="text-lg sm:text-xl font-semibold tracking-tight">
                   FundFi
                 </h1>
-                <p className="text-xs text-muted-foreground hidden sm:block">NAV Lending Protocol</p>
               </div>
             </div>
 
             {/* Actions */}
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <Button variant="outline" size="sm" onClick={toggleTheme}>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <Button variant="ghost" size="sm" onClick={toggleTheme} className="h-9 w-9 p-0">
                 {theme === 'dark' ? (
                   <Sun className="h-4 w-4" />
                 ) : (
                   <Moon className="h-4 w-4" />
                 )}
               </Button>
-              <Button className="flex items-center space-x-2" size="sm">
-                <Wallet className="h-4 w-4" />
-                <span className="hidden sm:inline">Connect Wallet</span>
-                <span className="sm:hidden">Connect</span>
+              <Button variant="outline" className="h-9" size="sm">
+                <span className="text-sm">Sign In</span>
               </Button>
             </div>
           </div>
@@ -49,10 +46,10 @@ export default function Layout({ children }) {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border mt-12 sm:mt-16 lg:mt-24">
+      <footer className="border-t border-border/10 mt-12 sm:mt-16 lg:mt-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <p>© 2025 FundFi. All rights reserved.</p>
+          <div className="flex items-center justify-between text-xs text-muted-foreground">
+            <p>© 2025 FundFi</p>
             <p>Powered by Ethereum</p>
           </div>
         </div>

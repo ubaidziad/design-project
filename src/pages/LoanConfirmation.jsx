@@ -56,23 +56,23 @@ export default function LoanConfirmation() {
     <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 lg:space-y-12 animate-fade-in">
       {/* Page Header */}
       <div className="text-center">
-        <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-500/10 mb-6">
+        <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-secondary/50 dark:bg-secondary/30 mb-6">
           {status === 'processing' && (
-            <Clock className="h-12 w-12 text-yellow-500 animate-pulse" />
+            <Clock className="h-12 w-12 text-muted-foreground animate-pulse" />
           )}
           {status === 'confirmed' && (
-            <Shield className="h-12 w-12 text-blue-500" />
+            <Shield className="h-12 w-12 text-primary" />
           )}
           {status === 'disbursed' && (
-            <CheckCircle2 className="h-12 w-12 text-green-500" />
+            <CheckCircle2 className="h-12 w-12 text-primary" />
           )}
         </div>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 leading-none tracking-tight">
           {status === 'processing' && 'Processing Loan...'}
           {status === 'confirmed' && 'Loan Confirmed!'}
           {status === 'disbursed' && 'Loan Approved!'}
         </h1>
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
           {status === 'processing' && 'Submitting your loan request to the blockchain'}
           {status === 'confirmed' && 'Your loan has been confirmed on-chain'}
           {status === 'disbursed' && 'Funds will be disbursed to your wallet shortly'}
@@ -146,7 +146,7 @@ export default function LoanConfirmation() {
       </Card>
 
       {/* Smart Contract Details */}
-      <Card className="border-2 border-primary/20">
+      <Card className="border-2 border-primary/20 dark:border-primary/10">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <Shield className="h-5 w-5 text-primary" />
@@ -168,7 +168,7 @@ export default function LoanConfirmation() {
                   onClick={() => copyToClipboard(contractHash)}
                 >
                   {copied ? (
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
                   ) : (
                     <Copy className="h-4 w-4" />
                   )}
@@ -207,7 +207,7 @@ export default function LoanConfirmation() {
           {/* Blockchain Badge */}
           <div className="flex items-center justify-center pt-2">
             <Badge variant="outline" className="flex items-center space-x-2 px-4 py-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               <span>Verified on Ethereum Mainnet</span>
             </Badge>
           </div>
@@ -242,11 +242,11 @@ export default function LoanConfirmation() {
       </Card>
 
       {/* Disbursement Info */}
-      <Card className="border-2 border-green-500/20 bg-green-500/5">
+      <Card className="border-2 border-primary/20 dark:border-primary/10">
         <CardContent className="pt-6">
           <div className="flex items-start space-x-4">
-            <div className="p-3 bg-green-500/10 rounded-lg">
-              <Wallet className="h-6 w-6 text-green-500" />
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <Wallet className="h-6 w-6 text-primary" />
             </div>
             <div className="flex-1">
               <h3 className="font-semibold text-lg mb-2">Funds Disbursement</h3>

@@ -2,12 +2,12 @@ import { cn } from '@/lib/utils'
 
 export function Badge({ className, variant = 'default', children, ...props }) {
   const variants = {
-    default: 'bg-primary text-primary-foreground hover:bg-primary/80',
-    secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-    success: 'bg-green-500 text-white',
-    warning: 'bg-yellow-500 text-white',
-    destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/80',
-    outline: 'border border-input text-foreground',
+    default: 'bg-foreground text-background dark:bg-white dark:text-black',
+    secondary: 'bg-secondary text-secondary-foreground',
+    success: 'bg-foreground text-background dark:bg-white dark:text-black',
+    warning: 'bg-muted text-foreground',
+    destructive: 'bg-destructive text-destructive-foreground',
+    outline: 'border border-border/50 text-foreground bg-transparent',
   }
 
   return (

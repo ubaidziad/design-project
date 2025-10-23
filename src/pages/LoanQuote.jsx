@@ -54,15 +54,15 @@ export default function LoanQuote() {
       </Button>
 
       {/* Page Header */}
-      <div className="mb-4">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight">Loan Quote</h1>
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+      <div className="mb-8">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 leading-none tracking-tight">Loan Quote</h1>
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
           Review your loan terms based on current NAV
         </p>
       </div>
 
       {/* NAV Summary */}
-      <Card className="border-2">
+      <Card className="border-2 dark:border-border/40">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
@@ -80,12 +80,12 @@ export default function LoanQuote() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Current NAV</p>
-              <p className="text-2xl md:text-3xl font-bold">{formatCurrency(fundData.nav)}</p>
+              <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">Current NAV</p>
+              <p className="text-3xl md:text-4xl font-semibold">{formatCurrency(fundData.nav)}</p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Available to Borrow</p>
-              <p className="text-2xl md:text-3xl font-bold text-primary">
+              <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">Available to Borrow</p>
+              <p className="text-3xl md:text-4xl font-semibold">
                 {formatCurrency(loanTerms.maxLoanAmount)}
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function LoanQuote() {
             <p className="text-sm text-muted-foreground">
               {formatCurrency(50000)}
             </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+            <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">
               {formatCurrency(loanAmount)}
             </p>
             <p className="text-sm text-muted-foreground">
@@ -125,7 +125,7 @@ export default function LoanQuote() {
       </Card>
 
       {/* Loan Terms */}
-      <Card className="border-2 border-primary/30 hover:shadow-xl hover:border-primary/50">
+      <Card className="border-2 border-primary/30 dark:border-primary/20 hover:shadow-xl dark:hover:shadow-lg hover:border-primary/50 dark:hover:border-primary/30">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <Shield className="h-5 w-5 text-primary" />
@@ -135,14 +135,14 @@ export default function LoanQuote() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
             {/* LTV Ratio */}
-            <div className="p-8 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all">
+            <div className="p-8 rounded-xl bg-secondary/50 dark:bg-secondary/30 border border-border dark:border-border/50 hover:border-border/80 dark:hover:border-border/70 transition-all">
               <div className="flex items-center space-x-3 mb-3">
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <Percent className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Loan-to-Value Ratio</p>
-                  <p className="text-3xl font-bold">{formatPercentage(loanTerms.ltv)}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide">Loan-to-Value Ratio</p>
+                  <p className="text-3xl font-semibold">{formatPercentage(loanTerms.ltv)}</p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">
@@ -151,14 +151,14 @@ export default function LoanQuote() {
             </div>
 
             {/* APR */}
-            <div className="p-8 rounded-xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 hover:border-blue-500/40 transition-all">
+            <div className="p-8 rounded-xl bg-secondary/50 dark:bg-secondary/30 border border-border dark:border-border/50 hover:border-border/80 dark:hover:border-border/70 transition-all">
               <div className="flex items-center space-x-3 mb-3">
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <TrendingUp className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Annual Percentage Rate</p>
-                  <p className="text-3xl font-bold">{formatPercentage(loanTerms.apr)}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide">Annual Percentage Rate</p>
+                  <p className="text-3xl font-semibold">{formatPercentage(loanTerms.apr)}</p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">
@@ -167,14 +167,14 @@ export default function LoanQuote() {
             </div>
 
             {/* Duration */}
-            <div className="p-8 rounded-xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 hover:border-purple-500/40 transition-all">
+            <div className="p-8 rounded-xl bg-secondary/50 dark:bg-secondary/30 border border-border dark:border-border/50 hover:border-border/80 dark:hover:border-border/70 transition-all">
               <div className="flex items-center space-x-3 mb-3">
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <Calendar className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Loan Duration</p>
-                  <p className="text-3xl font-bold">{loanTerms.duration} days</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide">Loan Duration</p>
+                  <p className="text-3xl font-semibold">{loanTerms.duration} days</p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">
@@ -183,14 +183,14 @@ export default function LoanQuote() {
             </div>
 
             {/* Collateral */}
-            <div className="p-8 rounded-xl bg-gradient-to-br from-green-500/10 to-green-500/5 border border-green-500/20 hover:border-green-500/40 transition-all">
+            <div className="p-8 rounded-xl bg-secondary/50 dark:bg-secondary/30 border border-border dark:border-border/50 hover:border-border/80 dark:hover:border-border/70 transition-all">
               <div className="flex items-center space-x-3 mb-3">
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <Shield className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Collateral Type</p>
-                  <p className="text-2xl font-bold">{loanTerms.collateralType}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide">Collateral Type</p>
+                  <p className="text-2xl font-semibold">{loanTerms.collateralType}</p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">
@@ -200,12 +200,12 @@ export default function LoanQuote() {
           </div>
 
           {/* Repayment Summary */}
-          <div className="mt-8 p-8 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30 hover:border-primary/50 transition-all">
+          <div className="mt-8 p-8 rounded-xl bg-secondary/50 dark:bg-secondary/30 border border-primary/30 dark:border-primary/20 hover:border-primary/50 dark:hover:border-primary/30 transition-all">
             <div className="flex items-start space-x-3">
               <Info className="h-5 w-5 text-primary mt-0.5" />
               <div className="flex-1">
                 <p className="font-medium mb-2">Estimated Monthly Payment</p>
-                <p className="text-3xl font-bold text-primary mb-2">
+                <p className="text-4xl font-semibold mb-2">
                   {formatCurrency(calculateMonthlyPayment())}
                 </p>
                 <p className="text-sm text-muted-foreground">
@@ -222,19 +222,19 @@ export default function LoanQuote() {
         <CardContent className="pt-6">
           <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-start space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
               <p>Loan will be disbursed in USDC to your connected wallet</p>
             </div>
             <div className="flex items-start space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
               <p>Fund units will be held as collateral in smart contract</p>
             </div>
             <div className="flex items-start space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
               <p>All transactions are recorded on-chain for transparency</p>
             </div>
             <div className="flex items-start space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+              <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
               <p>No prepayment penalties - repay early anytime</p>
             </div>
           </div>

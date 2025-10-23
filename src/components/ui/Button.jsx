@@ -9,10 +9,10 @@ export function Button({
   ...props 
 }) {
   const variants = {
-    default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    default: 'bg-foreground text-background hover:bg-foreground/90 dark:bg-white dark:text-black dark:hover:bg-white/90',
     secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-    outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-    ghost: 'hover:bg-accent hover:text-accent-foreground',
+    outline: 'border border-border/50 bg-transparent hover:bg-accent hover:border-border',
+    ghost: 'hover:bg-accent/50',
     destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
   }
 

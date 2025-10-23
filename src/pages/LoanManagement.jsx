@@ -61,10 +61,10 @@ export default function LoanManagement() {
       </Button>
 
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight">Active Loan</h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 leading-none tracking-tight">Loan Management</h1>
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
             Monitor your loan status and repayment schedule
           </p>
         </div>
@@ -93,8 +93,8 @@ export default function LoanManagement() {
         <Card className="lg:col-span-2 xl:col-span-2 hover:shadow-lg transition-shadow">
           <CardContent className="pt-6">
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-green-500/10 rounded-xl">
-                <TrendingUp className="h-6 w-6 text-green-500" />
+              <div className="p-3 bg-primary/10 rounded-xl">
+                <TrendingUp className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Total Paid</p>
@@ -107,8 +107,8 @@ export default function LoanManagement() {
         <Card className="lg:col-span-2 xl:col-span-2 hover:shadow-lg transition-shadow">
           <CardContent className="pt-6">
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-blue-500/10 rounded-xl">
-                <Calendar className="h-6 w-6 text-blue-500" />
+              <div className="p-3 bg-primary/10 rounded-xl">
+                <Calendar className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Next Payment</p>
@@ -134,7 +134,7 @@ export default function LoanManagement() {
       </div>
 
       {/* Repayment Progress */}
-      <Card className="border-2 hover:shadow-xl">
+      <Card className="border-2 dark:border-border/40 hover:shadow-xl dark:hover:shadow-lg">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>Repayment Progress</CardTitle>
@@ -177,32 +177,32 @@ export default function LoanManagement() {
       </Card>
 
       {/* Collateral Health */}
-      <Card className="border-2 border-green-500/30 bg-gradient-to-br from-green-500/10 via-green-500/5 to-transparent hover:shadow-xl hover:border-green-500/50">
+      <Card className="border-2 dark:border-border/40 hover:shadow-xl dark:hover:shadow-lg">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
-            <Shield className="h-5 w-5 text-green-500" />
+            <Shield className="h-5 w-5 text-primary" />
             <span>Collateral Health</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Collateral Type</p>
-              <p className="text-lg font-semibold">{loanData.collateral}</p>
+              <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">Collateral Type</p>
+              <p className="text-xl font-semibold">{loanData.collateral}</p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Current Value</p>
-              <p className="text-2xl font-bold">{formatCurrency(loanData.collateralValue)}</p>
+              <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">Current Value</p>
+              <p className="text-3xl font-semibold">{formatCurrency(loanData.collateralValue)}</p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Current LTV</p>
-              <p className="text-2xl font-bold text-green-500">{formatPercentage(loanData.ltvRatio)}</p>
+              <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">Current LTV</p>
+              <p className="text-3xl font-semibold">{formatPercentage(loanData.ltvRatio)}</p>
             </div>
           </div>
 
           <div className="mt-6 p-4 rounded-lg bg-background border">
             <div className="flex items-start space-x-3">
-              <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
+              <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium mb-1">Healthy Collateral Ratio</p>
                 <p className="text-sm text-muted-foreground">
@@ -353,10 +353,10 @@ export default function LoanManagement() {
       </div>
 
       {/* Info Banner */}
-      <Card className="border-blue-500/20 bg-blue-500/5">
+      <Card className="border-primary/20 dark:border-primary/10">
         <CardContent className="pt-6">
           <div className="flex items-start space-x-3">
-            <AlertCircle className="h-5 w-5 text-blue-500 mt-0.5" />
+            <AlertCircle className="h-5 w-5 text-primary mt-0.5" />
             <div>
               <p className="font-medium mb-1">Payment Reminder</p>
               <p className="text-sm text-muted-foreground">

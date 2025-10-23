@@ -30,19 +30,19 @@ export default function Dashboard() {
   return (
     <div className="space-y-6 sm:space-y-8 lg:space-y-12 animate-fade-in">
       {/* Page Header */}
-      <div className="mb-4">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight">LP Dashboard</h1>
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+      <div className="mb-8">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 leading-none tracking-tight">LP Dashboard</h1>
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
           View your fund holdings and borrowing capacity
         </p>
       </div>
 
       {/* Fund Overview Card */}
-      <Card className="border-2 hover:shadow-xl">
+      <Card className="border-2 dark:border-border/40 hover:shadow-xl dark:hover:shadow-lg">
         <CardHeader>
           <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
             <div>
-              <CardTitle className="text-xl md:text-2xl lg:text-3xl mb-2">{fundData.name}</CardTitle>
+              <CardTitle className="text-2xl md:text-3xl lg:text-4xl mb-2 font-semibold">{fundData.name}</CardTitle>
               <div className="flex items-center space-x-2">
                 {fundData.verified && (
                   <Badge variant="success" className="flex items-center space-x-1">
@@ -54,8 +54,8 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm text-muted-foreground mb-1">Current NAV</p>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+              <p className="text-xs text-muted-foreground mb-2">Current NAV</p>
+              <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">
                 {formatCurrency(fundData.nav)}
               </p>
             </div>
@@ -100,23 +100,23 @@ export default function Dashboard() {
 
             {/* Quick Stats */}
             <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-gradient-to-br from-green-500/10 to-green-500/5 border border-green-500/20 hover:border-green-500/40 transition-all">
+              <div className="p-6 rounded-xl bg-secondary/50 dark:bg-secondary/30 border border-border dark:border-border/50 hover:border-border/80 dark:hover:border-border/70 transition-all">
                 <div className="flex items-center space-x-2 mb-3">
-                  <div className="p-2 bg-green-500/10 rounded-lg">
-                    <TrendingUp className="h-5 w-5 text-green-500" />
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <TrendingUp className="h-5 w-5 text-primary" />
                   </div>
-                  <p className="text-sm font-medium text-muted-foreground">6M Growth</p>
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">6M Growth</p>
                 </div>
-                <p className="text-3xl font-bold text-green-600">+26.3%</p>
+                <p className="text-4xl font-semibold">+26.3%</p>
               </div>
-              <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all">
+              <div className="p-6 rounded-xl bg-secondary/50 dark:bg-secondary/30 border border-border dark:border-border/50 hover:border-border/80 dark:hover:border-border/70 transition-all">
                 <div className="flex items-center space-x-2 mb-3">
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <PieChart className="h-5 w-5 text-primary" />
                   </div>
-                  <p className="text-sm font-medium text-muted-foreground">Max LTV</p>
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Max LTV</p>
                 </div>
-                <p className="text-3xl font-bold">{fundData.ltvRatio}%</p>
+                <p className="text-4xl font-semibold">{fundData.ltvRatio}%</p>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function Dashboard() {
       </Card>
 
       {/* Borrowing Capacity Card */}
-      <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent hover:shadow-xl hover:border-primary/50">
+      <Card className="border-2 border-primary/30 dark:border-primary/20 hover:shadow-xl dark:hover:shadow-lg hover:border-primary/50 dark:hover:border-primary/30">
         <CardContent className="pt-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="flex-1">
@@ -133,8 +133,8 @@ export default function Dashboard() {
                   <DollarSign className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Eligible to Borrow</p>
-                  <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide">Eligible to Borrow</p>
+                  <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">
                     {formatCurrency(fundData.eligibleToBorrow)}
                   </p>
                 </div>
